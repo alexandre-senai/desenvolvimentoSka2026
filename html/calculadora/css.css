@@ -1,0 +1,40 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.calculadora {
+  background-color: red;
+  height: 365px;
+  width: 350px;
+  padding: 10px;
+}
+
+.botao {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  gap: 10px;
+  margin: 10px 0px;
+}
+
+.resultado {
+  width: 90%;
+  height: 30px;
+  font-size: 24px;
+  text-align: right;
+  display: flex;
+  margin: auto;
+}
+
+.botao button {
+  font-size: 24px;
+  height: 50px;
+  background: white;
+  border: none;
+}
+
+.zero {
+  grid-column: span 4;
+  width: 100px;
+  margin: auto;
+}

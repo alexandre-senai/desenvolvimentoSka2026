@@ -1,0 +1,52 @@
+.jogo {
+  margin: auto;
+}
+
+body {
+  display: flex;
+}
+
+h1 {
+  text-align: center;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+button {
+  width: 80px;
+  height: 30px;
+  margin: auto 20px;
+}
+
+h2{
+    text-align: center;
+}
+
+.console {
+  background-color: black;
+  color: white;
+  height: 300px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.linha {
+  display: inline-flex;
+}
+
+.bordaVida{
+    border:1px solid black;
+}
+
+.vida{
+    width: 100%;
+}
+
+.barraVida{
+    width: 85%;
+    height: 10px;
+    background-color: red;
+}

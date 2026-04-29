@@ -1,0 +1,66 @@
+<!-- Todo arquivo HTML começa assim -->
+<!doctype html>
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css.css" />
+    <script src="calculadora.js"></script>
+    <title>Minha Primeira Página</title>
+  </head>
+
+  <body>
+    <div class="calculadora">
+      <input class="resultado" value="" id="resultado" type="text" />
+
+      <div>
+        <button onclick="adicionar('+')" >+</button>
+        <button onclick="adicionar('-')">-</button>
+        <button onclick="adicionar('X')">X</button>
+        <button onclick="adicionar('%')">%</button>
+      </div>
+
+      <div class="linha">
+        <button onclick="adicionar('+')" >9</button>
+        <button onclick="adicionar('-')">8</button>
+        <button onclick="adicionar('X')">7</button>
+        <button onclick="adicionar('%')">6</button>
+      </div>
+      
+      <div class="linha">
+        <button onclick="adicionar('+')" >9</button>
+        <button onclick="adicionar('-')">8</button>
+        <button onclick="adicionar('X')">7</button>
+        <button onclick="adicionar('%')">6</button>
+      </div>
+
+      <div class="linha">
+        <button onclick="adicionar('+')" >9</button>
+        <button onclick="adicionar('-')">8</button>
+        <button onclick="adicionar('X')">7</button>
+        <button onclick="adicionar('%')">6</button>
+      </div>
+
+
+      <div class="botao">
+        <button onclick="adicionar('+')" >+</button>
+        <button onclick="adicionar('-')">-</button>
+        <button onclick="adicionar('X')">X</button>
+        <button onclick="adicionar('%')">%</button>
+        <button onclick="adicionar('9')">9</button>
+        <button onclick="adicionar('8')">8</button>
+        <button onclick="adicionar('7')">7</button>
+        <button onclick="limpar()">C</button>
+        <button onclick="adicionar('4')">4</button>
+        <button onclick="adicionar('5')">5</button>
+        <button onclick="adicionar('6')">6</button>
+        <button onclick="adicionar('.')">.</button>
+        <button onclick="adicionar('1')">1</button>
+        <button onclick="adicionar('2')">2</button>
+        <button onclick="adicionar('3')">3</button>
+        <button onclick="calcular()">=</button>
+        <button class="zero">0</button>
+      </div>
+    </div>
+  </body>
+</html>

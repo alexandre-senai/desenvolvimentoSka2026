@@ -2,7 +2,7 @@ import { Personagem } from "./Personagem.ts";
 
 export class Guerreiro extends Personagem {
   constructor(nome: string, forca: number, vida: number) {
-    super(nome, forca, vida, 100, 90);
+    super(nome, forca, vida, 100, 90, "drago2.PNG");
   }
 
   public atacar(persona: Personagem): void {
@@ -11,22 +11,22 @@ export class Guerreiro extends Personagem {
 
     switch (dado) {
       case 1:
-        console.log(`${this.nome} ataca com um machado o: ${persona.nome}`);
+        this.log(`${this.nome} ataca com um machado o: ${persona.nome}`);
         ataque = 15;
         break;
 
       case 2:
-        console.log(`${this.nome} ataca com um punhos o: ${persona.nome}`);
+        this.log(`${this.nome} ataca com um punhos o: ${persona.nome}`);
         ataque = 20;
         break;
 
       case 3:
-        console.log(`${this.nome} ataca jogando uma pedra no: ${persona.nome}`);
+        this.log(`${this.nome} ataca jogando uma pedra no: ${persona.nome}`);
         ataque = 30;
         break;
 
       default:
-        console.log(`${this.nome} ataca com a espada: ${persona.nome}`);
+        this.log(`${this.nome} ataca com a espada: ${persona.nome}`);
         break;
     }
     

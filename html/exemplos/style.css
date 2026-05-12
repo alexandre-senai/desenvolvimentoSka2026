@@ -1,0 +1,47 @@
+.quadrado {
+  width: 200px;
+  height: 200px;
+  background-color: green;
+  border-radius: 10px;
+}
+
+
+@keyframes rodarr {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes rodar {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: blue;
+  }
+  100% {
+    background-color: green;
+  }
+}
+
+.animacao {
+  animation: rodar 5s ease infinite;
+}
+
+.crescer{
+    width: 100px;
+    height: 30px;
+    background-color: red;
+}
+
+@keyframes cresce{
+    0%, 100%{ transform: scale(1); }
+    50%{ transform: scale(2); }
+}
+
+.crescer:hover{
+   animation: cresce 2s linear infinite;
+}

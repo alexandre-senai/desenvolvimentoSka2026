@@ -4,15 +4,18 @@ export abstract class Personagem {
   protected vida: number = 0;
   protected cura: number = 0;
   protected defesa:number = 0;
+  protected imagem:string = "";
 
   private jaUsouCura:boolean = false;
 
-  constructor(nome: string, forca: number, vida: number, cura:number, defesa:number) {
+  constructor(nome: string, forca: number, vida: number, cura:number, defesa:number, 
+    imagem:string) {
     this.nome = nome;
     this.forca = forca;
     this.vida = vida;
     this.cura = cura;
     this.defesa = defesa;
+    this.imagem = imagem;
   }
 
   isContinuaVivo(): boolean {
@@ -24,18 +27,32 @@ export abstract class Personagem {
 
     this.vida = this.vida - danoReal;
 
-    console.log(
-      `${this.nome} recebeu ${danoReal} de dano. vida atual: ${this.vida}`,
-    );
+    this.log(`${this.nome} recebeu ${danoReal} de dano. vida atual: ${this.vida}`)
 
     this.usarCura();
   }
+
+  getVida(){
+    return this.vida;
+  }
+
+  getImg(){
+    return this.imagem;
+  }
+
+  public log(mensagem: string) {
+    console.log(mensagem);
+
+    
+    document.getElementById("console")!.innerHTML += '<p>' + mensagem + '</p>';
+  }
+
 
   usarCura(): void {
     if (this.vida <= 50 && !this.jaUsouCura) {
       this.vida = this.vida + this.cura;
       this.jaUsouCura = true;
-      console.log(
+      this.log(
       `${this.nome} recebeu ${this.cura} de cura. vida atual: ${this.vida}`,
     );
     }

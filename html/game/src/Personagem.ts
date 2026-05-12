@@ -27,9 +27,7 @@ export abstract class Personagem {
 
     this.vida = this.vida - danoReal;
 
-    console.log(
-      `${this.nome} recebeu ${danoReal} de dano. vida atual: ${this.vida}`,
-    );
+    this.log(`${this.nome} recebeu ${danoReal} de dano. vida atual: ${this.vida}`)
 
     this.usarCura();
   }
@@ -42,11 +40,19 @@ export abstract class Personagem {
     return this.imagem;
   }
 
+  public log(mensagem: string) {
+    console.log(mensagem);
+
+    
+    document.getElementById("console")!.innerHTML += '<p>' + mensagem + '</p>';
+  }
+
+
   usarCura(): void {
     if (this.vida <= 50 && !this.jaUsouCura) {
       this.vida = this.vida + this.cura;
       this.jaUsouCura = true;
-      console.log(
+      this.log(
       `${this.nome} recebeu ${this.cura} de cura. vida atual: ${this.vida}`,
     );
     }

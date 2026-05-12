@@ -1,18 +1,18 @@
-import { Guerreiro } from "./Guerreiro.js";
-import { Mago } from "./Mago.js";
+import { Guerreiro } from "./Guerreiro.ts";
+import { Mago } from "./Mago.ts";
 import { Personagem } from "./Personagem.ts";
 
 export class Jogo {
-  public inicia(player1: Personagem, player2: Personagem) {
+  public async inicia(player1: Personagem, player2: Personagem) {
     let turno = 1;
 
     this.atualizarInterface(player1, player2);
 
     while (player1.isContinuaVivo() && player2.isContinuaVivo) {
-      console.log("\n ============== TURNO " + turno + " ==========");
+      player1.log("\n ============== TURNO " + turno + " ==========");
       player1.atacar(player2);
       this.atualizarInterface(player1, player2);
-      this.esperaTempo();
+      await this.esperaTempo();
 
       if (!player2.isContinuaVivo()) {
         break;
@@ -20,15 +20,15 @@ export class Jogo {
 
       player2.atacar(player1);
       this.atualizarInterface(player1, player2);
-      this.esperaTempo();
+      await this.esperaTempo();
 
       turno += 1;
     }
 
     if (player1.isContinuaVivo()) {
-      console.log(`${player1.nome} ganhou a luta.`);
+      player1.log(`${player1.nome} ganhou a luta.`);
     } else {
-      console.log(`${player2.nome} ganhou a luta.`);
+      player1.log(`${player2.nome} ganhou a luta.`);
     }
   }
 
@@ -36,23 +36,23 @@ export class Jogo {
     return document.getElementById(id);
   }
 
-  public log(mensagem:string){
-    this.buscaComponenteHtml("console")!.textContent = mensagem + " \n";
-  }
+ getPath():string{
+  return "C:\\Users\\Aluno\\Documents\\alexandre\\desenvolvimentoSka2026\\html\\game\\src\\images\\";
+ }
 
   public atualizarInterface(jogadorUm: Personagem, jogadorDois: Personagem) {
     (document.getElementById("imgJogadorUm") as HTMLImageElement).src =
-      jogadorUm.getImg();
+      this.getPath() + jogadorUm.getImg();
 
     (document.getElementById("imgJogadorDois") as HTMLImageElement).src =
-      jogadorDois.getImg();
+     this.getPath() +  jogadorDois.getImg();
 
     this.buscaComponenteHtml("nomeUm")!.textContent = jogadorUm.nome;
     this.buscaComponenteHtml("nomeDois")!.textContent = jogadorDois.nome;
 
-    this.buscaComponenteHtml("saudeUm")!.textContent =
+    this.buscaComponenteHtml("jogadorUmVida")!.textContent =
       "HP: " + jogadorUm.getVida();
-    this.buscaComponenteHtml("saudeDois")!.textContent =
+    this.buscaComponenteHtml("jogadorDoisVida")!.textContent =
       "HP: " + jogadorDois.getVida();
   }
 
@@ -62,13 +62,12 @@ export class Jogo {
   }
 }
 
+function construirJogo() {
+  let mago: Mago = new Mago("Mago", 120, 200);
+  let guerreiro: Guerreiro = new Guerreiro("Guerreiro", 100, 300);
 
-function construirJogo(){
-    let mago:Mago = new Mago("Mago", 120, 200);
-    let guerreiro:Guerreiro= new Guerreiro("Guerreiro", 100, 300);
-    
-    let jogo:Jogo = new Jogo();
-    jogo.inicia(mago, guerreiro);
+  let jogo: Jogo = new Jogo();
+  jogo.inicia(mago, guerreiro);
 }
 
 document.getElementById("botaoJogar")!.addEventListener("click", construirJogo);
